@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
+import { useNavigate } from "react-router-dom";
+import { auth, signInWithGoogle } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Notification from "./components/Notification";
 import "./Login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const [notification, setNotification] = useState(null);
   const navigate = useNavigate();
@@ -18,19 +16,6 @@ function Login() {
     }
     if (user) navigate("/");
   }, [user, loading, navigate]);
-
-  const handleEmailLogin = async () => {
-    if (!email || !password) {
-      setNotification({ message: "Please enter both email and password.", type: "error" });
-      setTimeout(() => setNotification(null), 5000);
-      return;
-    }
-    const result = await logInWithEmailAndPassword(email, password);
-    if (!result.success) {
-      setNotification({ message: result.error, type: "error" });
-      setTimeout(() => setNotification(null), 5000);
-    }
-  };
 
   const handleGoogleSignIn = async () => {
     const result = await signInWithGoogle();
@@ -48,35 +33,10 @@ function Login() {
         onClose={() => setNotification(null)}
       />
       <div className="login__container">
-        <input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button
-          className="login__btn"
-          onClick={handleEmailLogin}
-        >
-          Login
-        </button>
+        <h2>Sign In</h2>
         <button className="login__btn login__google" onClick={handleGoogleSignIn}>
-          Login with Google
+          Sign in with Google
         </button>
-        <div>
-          <Link to="/reset">Forgot Password</Link>
-        </div>
-        <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
-        </div>
       </div>
     </div>
   );

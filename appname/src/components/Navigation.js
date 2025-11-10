@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, logout } from '../firebase';
+import { auth, logout, signInWithGoogle } from '../firebase';
 import './Navigation.css';
 
 function Navigation() {
   const [user] = useAuthState(auth);
+
+  const handleGoogleSignIn = async () => {
+    await signInWithGoogle();
+  };
 
   return (
     <nav className="navigation">
@@ -22,7 +26,9 @@ function Navigation() {
             </button>
           </>
         ) : (
-          <Link to="/login" className="nav-link">Login</Link>
+          <button className="nav-link nav-button nav-google-btn" onClick={handleGoogleSignIn}>
+            Log in with Google
+          </button>
         )}
       </div>
     </nav>
