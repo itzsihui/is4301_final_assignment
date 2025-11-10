@@ -1,0 +1,27 @@
+.navigation {
+  background-color: #003d7a;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:active,
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+

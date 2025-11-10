@@ -1,0 +1,43 @@
+.admission-page {
+  min-height: calc(100vh - 80px);
+  background-color: #f5f5f5;
+  padding: 2rem;
+}
+
+.admission-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.admission-content h1 {
+  color: #003d7a;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admission-list {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  list-style-position: inside;
+  counter-reset: admission-step;
+}
+
+.admission-list li {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  padding-left: 0.5rem;
+  line-height: 1.6;
+}
+
+.admission-list li::marker {
+  font-weight: 600;
+  color: #003d7a;
+}
+
+.admission-list li:last-child {
+  margin-bottom: 0;
+}
+
