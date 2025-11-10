@@ -21,6 +21,28 @@
   font-size: 1.5rem;
   color: #003d7a;
   font-weight: 500;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
+.google-signin-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.google-signin-btn:hover {
+  background-color: #357ae8;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: #003d7a;
+  margin-top: 1rem;
+}
