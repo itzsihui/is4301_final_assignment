@@ -2,8 +2,20 @@
   background-color: #003d7a;
   padding: 1rem 2rem;
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .nav-link {
@@ -23,5 +35,18 @@
 .nav-link:active,
 .nav-link.active {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-user {
+  color: white;
+  font-size: 0.95rem;
+  padding: 0.5rem;
 }
 
